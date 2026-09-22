@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'maven'
+    }
+
     stages {
 
         stage('Clean') {
@@ -29,6 +33,10 @@ pipeline {
     }
 
     post {
+        success {
+            echo 'ABC App Pipeline Successful'
+        }
+
         failure {
             echo 'ABC App Pipeline Failed'
         }
