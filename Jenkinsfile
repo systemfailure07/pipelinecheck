@@ -1,7 +1,9 @@
 pipeline {
+
     agent any
-    
+
     tools {
+        jdk 'jdk17'
         maven 'maven'
     }
 
@@ -30,9 +32,11 @@ pipeline {
                 sh 'mvn verify'
             }
         }
+
     }
 
     post {
+
         success {
             echo 'ABC App Pipeline Successful'
         }
@@ -40,5 +44,7 @@ pipeline {
         failure {
             echo 'ABC App Pipeline Failed'
         }
+
     }
+
 }
